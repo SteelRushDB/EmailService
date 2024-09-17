@@ -1,0 +1,39 @@
+@model System.Collections.Generic.List<HSE_Solution7_EMailService.Models.Msg>
+
+<a asp-action="Create">Написать сообщение</a>
+
+<h2>Получить сообщения по идентификаторам отправителя и получателя</h2>
+
+<form asp-action="GetMessagesByBoth" method="get">
+    <div>
+        <label for="senderId">Идентификатор отправителя:</label>
+        <input type="text" id="senderId" name="senderId" />
+    </div>
+    <div>
+        <label for="receiverId">Идентификатор получателя:</label>
+        <input type="text" id="receiverId" name="receiverId" />
+    </div>
+    <button type="submit">Просмотреть сообщения</button>
+</form>
+
+
+<h2>Получить сообщения по отправителю</h2>
+
+<form asp-action="GetMsgBySender" method="get">
+    <div>
+        <label for="senderId">Идентификатор отправителя:</label>
+        <input type="text" id="senderId" name="senderId" />
+    </div>
+    <button type="submit">Просмотреть сообщения</button>
+</form>
+
+
+<h2>Получить сообщения по получателю</h2>
+
+<form asp-action="GetMsgByReceiver" method="get">
+    <div>
+        <label for="receiverId">Идентификатор получателя:</label>
+        <input type="text" id="receiverId" name="receiverId" />
+    </div>
+    <button type="submit">Просмотреть сообщения</button>
+</form>

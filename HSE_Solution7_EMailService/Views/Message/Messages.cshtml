@@ -1,0 +1,27 @@
+@model System.Collections.Generic.List<HSE_Solution7_EMailService.Models.Msg>
+
+<h2>Список сообщений</h2>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">Тема</th>
+        <th scope="col">От</th>
+        <th scope="col">Кому</th>
+        <th scope="col">Содержание</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var msg in Model)
+    {
+        <tr>
+            <td>@msg.Subject</td>
+            <td>@msg.SenderId</td>
+            <td>@msg.ReceiverId</td>
+            <td>@msg.Content</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Index">Назад</a>
