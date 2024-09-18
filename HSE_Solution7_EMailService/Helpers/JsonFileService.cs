@@ -116,31 +116,33 @@ public class JsonFileService
             }
 
             messages.Add(new Msg(
-                i + 1,
+                
                 $"Subject {random.Next(1, 100)}",
                 $"Message content {random.Next(1, 1000)}",
-                users[senderIndex].Id,
-                users[receiverIndex].Id
+                users[senderIndex].Email,
+                users[receiverIndex].Email
             ));
         }
         return messages;
     }
 
-    public List<Msg> GetMsgsByBoth(int senderId, int receiverId)
+    public List<Msg> GetMsgsByBoth(string senderEmail, string receiverEmail)
     {
         List <Msg> msgs = ReadMessagesFromFile();
-        return msgs.Where(i => i.SenderId == senderId && i.ReceiverId == receiverId).ToList();
+        return msgs.Where(i => i.SenderEmail.Equals(senderEmail) && i.ReceiverEmail.Equals(receiverEmail)).ToList();
     }
 
-    public List<Msg> GetMsgsBySender(int senderId)
+    public List<Msg> GetMsgsBySender(string senderEmail)
     {
         List <Msg> msgs = ReadMessagesFromFile();
-        return msgs.Where(i => i.SenderId == senderId).ToList();
+        return msgs.Where(i => i.SenderEmail.Equals(senderEmail)).ToList();
     }
     
-    public List<Msg> GetMsgsByReceiver(int receiverId)
+    public List<Msg> GetMsgsByReceiver(string receiverEmail)
     {
         List <Msg> msgs = ReadMessagesFromFile();
-        return msgs.Where(i => i.ReceiverId == receiverId).ToList();
+        return msgs.Where(i => i.ReceiverEmail.Equals(receiverEmail)).ToList();
     }
+
+    
 }

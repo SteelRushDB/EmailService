@@ -41,6 +41,12 @@ public class UserController : Controller
     [HttpPost]
     public IActionResult Create(User user)
     {
+        if (_jsonFileService.GetUserByEmail(user.Email) != null)
+        {
+            // Добавляем ошибку в ModelState
+            ModelState.AddModelError("Email", "Пользователь с таким email уже существует.");
+        }
+        
         if (ModelState.IsValid)
         {
             var users = _jsonFileService.ReadUsersFromFile();

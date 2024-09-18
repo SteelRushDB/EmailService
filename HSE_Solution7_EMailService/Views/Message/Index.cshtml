@@ -2,16 +2,16 @@
 
 <a asp-action="Create">Написать сообщение</a>
 
-<h2>Получить сообщения по идентификаторам отправителя и получателя</h2>
+<h2>Получить сообщения по Email отправителя и получателя</h2>
 
 <form asp-action="GetMessagesByBoth" method="get">
     <div>
-        <label for="senderId">Идентификатор отправителя:</label>
-        <input type="text" id="senderId" name="senderId" />
+        <label for="senderEmail">Email отправителя:</label>
+        <input type="text" id="senderEmail" name="senderEmail" />
     </div>
     <div>
-        <label for="receiverId">Идентификатор получателя:</label>
-        <input type="text" id="receiverId" name="receiverId" />
+        <label for="receiverEmail">Email получателя:</label>
+        <input type="text" id="receiverEmail" name="receiverEmail" />
     </div>
     <button type="submit">Просмотреть сообщения</button>
 </form>
@@ -21,8 +21,8 @@
 
 <form asp-action="GetMsgBySender" method="get">
     <div>
-        <label for="senderId">Идентификатор отправителя:</label>
-        <input type="text" id="senderId" name="senderId" />
+        <label for="senderEmail">Идентификатор отправителя:</label>
+        <input type="text" id="senderEmail" name="senderEmail" />
     </div>
     <button type="submit">Просмотреть сообщения</button>
 </form>
@@ -32,8 +32,8 @@
 
 <form asp-action="GetMsgByReceiver" method="get">
     <div>
-        <label for="receiverId">Идентификатор получателя:</label>
-        <input type="text" id="receiverId" name="receiverId" />
+        <label for="receiverEmail">Идентификатор получателя:</label>
+        <input type="text" id="receiverEmail" name="receiverEmail" />
     </div>
     <button type="submit">Просмотреть сообщения</button>
 </form>
