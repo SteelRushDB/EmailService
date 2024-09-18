@@ -1,0 +1,27 @@
+@model System.Collections.Generic.List<HSE_Solution7_EMailService.Models.User>
+
+<h2>Выборка пользователей</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>
+                <a asp-controller="User" asp-action="Details" asp-route-Email="@user.Email">
+                    @user.Email
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Index">Назад к полному списку</a>

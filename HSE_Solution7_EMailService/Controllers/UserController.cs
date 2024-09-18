@@ -19,6 +19,34 @@ public class UserController : Controller
         return View(users);
     }
     
+    [HttpGet]
+    public IActionResult IndexPart(int limit, int offset)
+    {
+        --offset;
+        
+        if (offset < 0 || limit <= 0 )
+        {
+            return View("400");
+        }
+        
+        var users = _jsonFileService.ReadUsersFromFile();
+        
+        List<User> partUsers = new List<User>();
+        
+        if (offset >= users.Count)
+        {
+            offset = users.Count - 1;
+        }
+        
+        if (limit > users.Count-offset)
+        {
+            limit = users.Count - offset;
+        }
+
+        partUsers = users.Slice(offset, limit);
+        return View(partUsers);
+    }
+    
     
     [HttpGet]
     public IActionResult Details(string Email)
